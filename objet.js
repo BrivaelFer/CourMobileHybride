@@ -3,6 +3,7 @@ class SavoirInutile
 {
     // Attrributs dans le constricteur
     constructor( savoir, auteur, date){
+        this.id = Date.now()
         this.savoir = savoir;
         this.auteur = auteur;
         this.date = date;
@@ -59,6 +60,7 @@ function ajouter()
 
     // Instanciation
     let newSavoir = new SavoirInutile( elSavoir, elAuteur, elDate);
+    stocker(newSavoir);
 
     // Verififer
     if (newSavoir.verificationSaisie())
@@ -66,6 +68,14 @@ function ajouter()
         // Ajouter dans le dom
         newSavoir.ajouterDansleDom();
     }
+}
+function stocker(savoir)
+{
+    localStorage.setItem('savoirs', localStorage.getItem('savoirs') +', '+ JSON.stringify(savoir));
+}
+function readlocalStock()
+{
+
 }
 
 function supprimer(){
