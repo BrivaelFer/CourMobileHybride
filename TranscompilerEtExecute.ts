@@ -1,0 +1,4 @@
+function truc( tt:string)
+{
+
+}
